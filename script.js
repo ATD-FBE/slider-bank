@@ -27,8 +27,8 @@ btnActiveSingle.onclick = () => {
     marker.innerHTML = '';
 
     sliderBank.activate(
+        'single',
         singleSlider,
-        1,
         +paramSingleMinLimit.value,
         +paramSingleMaxLimit.value,
         +paramSingleValue.value,
@@ -52,7 +52,7 @@ btnEnableSingle.onclick = () => {
     btnEnableSingle.disabled = true;
 };
 
-sliderBank.activate(singleSlider, 1, 0, 300, 150, 1);
+sliderBank.activate('single', singleSlider, 0, 300, 150, 1);
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -70,14 +70,15 @@ btnActiveRange.onclick = () => {
     sliderBank.enable(rangeSlider);
 
     const markers = rangeSlider.querySelectorAll('.thumb');
+
     markers.forEach(marker => {
         marker.innerHTML = '';
         marker.className = 'thumb';
     });
 
     sliderBank.activate(
+        'range',
         rangeSlider,
-        2,
         +paramMinLimit.value,
         +paramMaxLimit.value,
         +paramValue1.value,
@@ -101,7 +102,7 @@ btnEnableRange.onclick = () => {
     btnEnableRange.disabled = true;
 };
 
-sliderBank.activate(rangeSlider, 2, 0, 300, 100, 200, 1);
+sliderBank.activate('range', rangeSlider, 0, 300, 100, 200, 1);
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -114,15 +115,15 @@ dataInfo.style.marginLeft = '';
 ///////////////////////////////////////////////////////////////////////////////////////
 
 function activate(...args) {
-    const type = args[1]; // Type of slider
+    const type = args[0]; // Type of slider
 
-    args.splice(1, 1);
+    args.splice(0, 1); // Аргументы для функций
 
     switch (type) {
-        case 1:
+        case 'single':
             useSingleSlider(...args);
             break;
-        case 2:
+        case 'range':
             useRangeSlider(...args);
             break;
         default:

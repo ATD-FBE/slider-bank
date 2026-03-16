@@ -7,15 +7,15 @@ const sliderBank = {
 };
 
 function activate(...args) {
-    const type = args[1];
+    const type = args[0]; // Type of slider
 
-    args.splice(1, 1);
+    args.splice(0, 1); // Аргументы для функций
 
     switch (type) {
-        case 1:
+        case 'single':
             useSingleSlider(...args);
             break;
-        case 2:
+        case 'range':
             useRangeSlider(...args);
             break;
         default:
@@ -343,7 +343,7 @@ function disable(...sliders) {
         sliderElem.style.background = '#dddddd';
 
         const markers = sliderElem.querySelectorAll('.thumb');
-        
+
         for (let marker of markers) {
             marker.style.backgroundColor = '#979797';
             marker.style.cursor = 'not-allowed';

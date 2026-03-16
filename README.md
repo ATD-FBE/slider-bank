@@ -22,7 +22,8 @@
 import { sliderBank } from './slider_bank.js';
 
 // Одиночный слайдер
-sliderBank.activate(element, 1, min, max, value, step, showValue);
+sliderBank.activate('single', element, min, max, value, step, showValue);
 
 // Слайдер диапазона
-sliderBank.activate(element, 2, min, max, val1, val2, step);
+sliderBank.activate('range', element, min, max, val1, val2, step);
+```
