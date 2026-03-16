@@ -25,4 +25,4 @@ import { sliderBank } from './slider_bank.js';
 sliderBank.activate(element, 1, min, max, value, step, showValue);
 
 // Слайдер диапазона
-sliderBank.activate(element, 2, min, max, val1, val2, step);```
+sliderBank.activate(element, 2, min, max, val1, val2, step);
